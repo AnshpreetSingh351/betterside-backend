@@ -1,21 +1,17 @@
 const express = require("express");
-const cors = app.get("/", (req, res) => {
-  res.send("Backend is running ✅");
-});
-require("cors");
+const cors = require("cors");
 
 const app = express();
 
-// middleware
 app.use(cors());
 app.use(express.json());
 
-// test route
+// ROOT ROUTE (THIS FIXES YOUR ERROR)
 app.get("/", (req, res) => {
   res.send("Backend is running ✅");
 });
 
-// POST route
+// POST ROUTE
 app.post("/data", (req, res) => {
   const { name, email } = req.body;
 
@@ -35,9 +31,7 @@ app.post("/data", (req, res) => {
   });
 });
 
-// start server
 const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
-
