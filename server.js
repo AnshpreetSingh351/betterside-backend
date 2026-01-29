@@ -1,5 +1,8 @@
 const express = require("express");
-const cors = require("cors");
+const cors = app.get("/", (req, res) => {
+  res.send("Backend is running ✅");
+});
+require("cors");
 
 const app = express();
 
@@ -37,3 +40,4 @@ const PORT = process.env.PORT || 10000;
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
+
