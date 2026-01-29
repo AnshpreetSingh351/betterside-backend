@@ -30,7 +30,8 @@ app.post("/data", async (req, res) => {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:C",
+ range: "Betterside leads!A:C",
+
       valueInputOption: "USER_ENTERED",
       requestBody: {
         values: [[name, email, role]],
