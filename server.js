@@ -59,7 +59,7 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          fullName,                    // A
+          name,                    // A
           email,                       // B
           role || "buyer",             // C
           phone || "",                 // D
@@ -134,3 +134,4 @@ app.post("/login", async (req, res) => {
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
+
