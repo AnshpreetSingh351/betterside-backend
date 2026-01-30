@@ -1,6 +1,6 @@
-const bcrypt = require("bcrypt");
 const express = require("express");
 const cors = require("cors");
+const bcrypt = require("bcrypt");
 const { google } = require("googleapis");
 
 const app = express();
@@ -20,32 +20,36 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets({ version: "v4", auth });
 
 /* ===============================
-   TEST ROUTE
+   TEST ROUTES
 ================================ */
 app.get("/", (req, res) => {
-  res.send("Backend running ✅");
+  res.send("Backend is running 🚀");
+});
+
+app.get("/test", (req, res) => {
+  res.json({ status: "Backend working ✅" });
 });
 
 /* ===============================
-   REGISTER (SAVE USER)
+   REGISTER → SAVE TO GOOGLE SHEET
 ================================ */
 app.post("/data", async (req, res) => {
   try {
     const {
-      name,
+      fullName,
       email,
       role,
       phone,
       city,
       budget,
-      password
+      password,
     } = req.body;
 
-    if (!name || !email || !password) {
+    if (!fullName || !email || !password) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    // 🔐 hash password
+    // 🔐 Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
     await sheets.spreadsheets.values.append({
@@ -55,14 +59,14 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          fullName,
-          email,
-          role || "buyer",
-          phone || "",
-          city || "",
-          budget || "",
-          hashedPassword,
-          new Date().toLocaleString()
+          fullName,                    // A
+          email,                       // B
+          role || "buyer",             // C
+          phone || "",                 // D
+          city || "",                  // E
+          budget || "",                // F
+          hashedPassword,              // G 🔐
+          new Date().toLocaleString()  // H
         ]]
       }
     });
@@ -71,62 +75,56 @@ app.post("/data", async (req, res) => {
 
   } catch (err) {
     console.error("REGISTER ERROR:", err);
-    res.status(500).json({ error: "Registration failed" });
+    res.status(500).json({ error: "Failed to register" });
   }
 });
 
 /* ===============================
-   LOGIN (STEP 2)
+   LOGIN → CHECK PASSWORD
 ================================ */
 app.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { email, password } = req.body;
-
-    if (!email || !password) {
-      return res.status(400).json({ error: "Email and password required" });
-    }
-
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: "Sheet1!A:H",
     });
 
     const rows = response.data.values;
+
     if (!rows || rows.length < 2) {
-      return res.status(401).json({ error: "No users found" });
+      return res.status(401).json({ error: "User not found" });
     }
 
-    // remove header
-    const users = rows.slice(1);
-
-    // find user by email (column B)
-    const user = users.find(row => row[1] === email);
+    // Find user by email (column B)
+    const user = rows.find(row => row[1] === email);
 
     if (!user) {
       return res.status(401).json({ error: "User not found" });
     }
 
-    const storedHashedPassword = user[6]; // column G
+    const hashedPassword = user[6]; // column G
 
-    const isMatch = await bcrypt.compare(password, storedHashedPassword);
+    const isMatch = await bcrypt.compare(password, hashedPassword);
 
     if (!isMatch) {
       return res.status(401).json({ error: "Invalid password" });
     }
 
-    // SUCCESS
+    // ✅ Login success
     res.json({
       success: true,
       user: {
         name: user[0],
         email: user[1],
-        role: user[2]
-      }
+        role: user[2],
+      },
     });
 
   } catch (err) {
     console.error("LOGIN ERROR:", err);
-    res.status(500).json({ error: "Login failed" });
+    res.status(500).json({ error: "Server error" });
   }
 });
 
