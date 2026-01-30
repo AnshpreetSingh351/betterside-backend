@@ -1,3 +1,4 @@
+const bcrypt = require("bcrypt");
 const express = require("express");
 const cors = require("cors");
 const { google } = require("googleapis");
@@ -21,21 +22,10 @@ const sheets = google.sheets({ version: "v4", auth });
 /* ===============================
    TEST ROUTES
 ================================ */
-app.get("/", (req, res) => {
-  res.send("Backend is running 🚀");
-});
-
-app.get("/test", (req, res) => {
-  res.json({ status: "Backend working ✅" });
-});
-
-/* ===============================
-   POST DATA → GOOGLE SHEET
-================================ */
 app.post("/data", async (req, res) => {
   try {
     const {
-      name,        // ✅ FIXED (was fullName)
+      fullName,
       email,
       role,
       phone,
@@ -44,11 +34,14 @@ app.post("/data", async (req, res) => {
       password
     } = req.body;
 
-    if (!name || !email) {
-      return res.status(400).json({ error: "Name and email required" });
+    if (!fullName || !email || !password) {
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
-    console.log("DATA RECEIVED:", req.body);
+    // 🔐 HASH PASSWORD
+    const hashedPassword = await bcrypt.hash(password, 10);
+
+    console.log("DATA RECEIVED:", email);
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
@@ -57,14 +50,14 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          name,                     // A name
-          email,                    // B email
-          role || "buyer",          // C role
-          phone || "",              // D phone
-          city || "",               // E city
-          budget || "",             // F budget
-          password || "",           // G password
-          new Date().toLocaleString() // H time
+          fullName,
+          email,
+          role || "buyer",
+          phone || "",
+          city || "",
+          budget || "",
+          hashedPassword,               // 🔐 hashed password
+          new Date().toLocaleString()
         ]]
       }
     });
@@ -76,6 +69,7 @@ app.post("/data", async (req, res) => {
     res.status(500).json({ error: "Failed to save data" });
   }
 });
+
 
 /* ===============================
    START SERVER
