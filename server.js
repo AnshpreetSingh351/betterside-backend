@@ -51,25 +51,25 @@ app.post("/data", async (req, res) => {
 
     // 🔐 Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
+await sheets.spreadsheets.values.append({
+  spreadsheetId: process.env.GOOGLE_SHEET_ID,
+  range: "Sheet1!A:H",
+  valueInputOption: "USER_ENTERED",
+  insertDataOption: "INSERT_ROWS",
+  requestBody: {
+    values: [[
+      fullName,                  // ✅ FIXED
+      email,
+      role || "buyer",
+      phone || "",
+      city || "",
+      budget || "",
+      hashedPassword,            // 🔐 hashed
+      new Date().toLocaleString()
+    ]]
+  }
+});
 
-    await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Sheet1!A:H",
-      valueInputOption: "USER_ENTERED",
-      insertDataOption: "INSERT_ROWS",
-      requestBody: {
-        values: [[
-          name,                    // A
-          email,                       // B
-          role || "buyer",             // C
-          phone || "",                 // D
-          city || "",                  // E
-          budget || "",                // F
-          hashedPassword,              // G 🔐
-          new Date().toLocaleString()  // H
-        ]]
-      }
-    });
 
     res.json({ success: true });
 
@@ -134,4 +134,3 @@ app.post("/login", async (req, res) => {
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
-
