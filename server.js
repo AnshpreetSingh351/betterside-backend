@@ -20,12 +20,19 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets({ version: "v4", auth });
 
 /* ===============================
-   TEST ROUTES
+   TEST ROUTE
+================================ */
+app.get("/", (req, res) => {
+  res.send("Backend running ✅");
+});
+
+/* ===============================
+   REGISTER (SAVE USER)
 ================================ */
 app.post("/data", async (req, res) => {
   try {
     const {
-      fullName,
+      name,
       email,
       role,
       phone,
@@ -34,14 +41,12 @@ app.post("/data", async (req, res) => {
       password
     } = req.body;
 
-    if (!fullName || !email || !password) {
+    if (!name || !email || !password) {
       return res.status(400).json({ error: "Missing required fields" });
     }
 
-    // 🔐 HASH PASSWORD
+    // 🔐 hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    console.log("DATA RECEIVED:", email);
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
@@ -50,13 +55,13 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          fullName,
+          name,
           email,
           role || "buyer",
           phone || "",
           city || "",
           budget || "",
-          hashedPassword,               // 🔐 hashed password
+          hashedPassword,
           new Date().toLocaleString()
         ]]
       }
@@ -65,11 +70,65 @@ app.post("/data", async (req, res) => {
     res.json({ success: true });
 
   } catch (err) {
-    console.error("GOOGLE SHEET ERROR:", err);
-    res.status(500).json({ error: "Failed to save data" });
+    console.error("REGISTER ERROR:", err);
+    res.status(500).json({ error: "Registration failed" });
   }
 });
 
+/* ===============================
+   LOGIN (STEP 2)
+================================ */
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password required" });
+    }
+
+    const response = await sheets.spreadsheets.values.get({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: "Sheet1!A:H",
+    });
+
+    const rows = response.data.values;
+    if (!rows || rows.length < 2) {
+      return res.status(401).json({ error: "No users found" });
+    }
+
+    // remove header
+    const users = rows.slice(1);
+
+    // find user by email (column B)
+    const user = users.find(row => row[1] === email);
+
+    if (!user) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    const storedHashedPassword = user[6]; // column G
+
+    const isMatch = await bcrypt.compare(password, storedHashedPassword);
+
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid password" });
+    }
+
+    // SUCCESS
+    res.json({
+      success: true,
+      user: {
+        name: user[0],
+        email: user[1],
+        role: user[2]
+      }
+    });
+
+  } catch (err) {
+    console.error("LOGIN ERROR:", err);
+    res.status(500).json({ error: "Login failed" });
+  }
+});
 
 /* ===============================
    START SERVER
