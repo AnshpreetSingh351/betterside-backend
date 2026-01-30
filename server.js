@@ -35,7 +35,7 @@ app.get("/test", (req, res) => {
 app.post("/data", async (req, res) => {
   try {
     const {
-      fullName,
+      name,        // ✅ FIXED (was fullName)
       email,
       role,
       phone,
@@ -44,7 +44,7 @@ app.post("/data", async (req, res) => {
       password
     } = req.body;
 
-    if (!fullName || !email) {
+    if (!name || !email) {
       return res.status(400).json({ error: "Name and email required" });
     }
 
@@ -57,13 +57,13 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          fullName,               // A name
-          email,                  // B email
-          role || "buyer",        // C role
-          phone || "",            // D phone
-          city || "",             // E city
-          budget || "",           // F budget
-          password || "",         // G password
+          name,                     // A name
+          email,                    // B email
+          role || "buyer",          // C role
+          phone || "",              // D phone
+          city || "",               // E city
+          budget || "",             // F budget
+          password || "",           // G password
           new Date().toLocaleString() // H time
         ]]
       }
@@ -76,7 +76,6 @@ app.post("/data", async (req, res) => {
     res.status(500).json({ error: "Failed to save data" });
   }
 });
-
 
 /* ===============================
    START SERVER
