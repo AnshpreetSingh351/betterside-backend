@@ -44,7 +44,7 @@ app.post("/data", async (req, res) => {
 
     await sheets.spreadsheets.values.append({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "Betterside leads!A:D",   // ⚠️ TAB NAME MUST MATCH
+      range: "Sheet1!A:D",   // ⚠️ TAB NAME MUST MATCH
       valueInputOption: "USER_ENTERED",
       insertDataOption: "INSERT_ROWS",
       requestBody: {
@@ -70,3 +70,4 @@ app.post("/data", async (req, res) => {
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
 });
+
