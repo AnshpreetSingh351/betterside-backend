@@ -55,7 +55,7 @@ app.post("/data", async (req, res) => {
       insertDataOption: "INSERT_ROWS",
       requestBody: {
         values: [[
-          name,
+          fullName,
           email,
           role || "buyer",
           phone || "",
