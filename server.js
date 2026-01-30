@@ -51,25 +51,25 @@ app.post("/data", async (req, res) => {
 
     // 🔐 Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-await sheets.spreadsheets.values.append({
-  spreadsheetId: process.env.GOOGLE_SHEET_ID,
-  range: "Sheet1!A:H",
-  valueInputOption: "USER_ENTERED",
-  insertDataOption: "INSERT_ROWS",
-  requestBody: {
-    values: [[
-      fullName,                  // ✅ FIXED
-      email,
-      role || "buyer",
-      phone || "",
-      city || "",
-      budget || "",
-      hashedPassword,            // 🔐 hashed
-      new Date().toLocaleString()
-    ]]
-  }
-});
 
+    await sheets.spreadsheets.values.append({
+      spreadsheetId: process.env.GOOGLE_SHEET_ID,
+      range: "Sheet1!A:H",
+      valueInputOption: "USER_ENTERED",
+      insertDataOption: "INSERT_ROWS",
+      requestBody: {
+        values: [[
+          fullName,                  // A - Name
+          email,                     // B - Email
+          role || "buyer",           // C - Role
+          phone || "",               // D - Phone
+          city || "",                // E - City
+          budget || "",              // F - Budget
+          hashedPassword,            // G - 🔐 Hashed Password
+          new Date().toLocaleString()// H - Time
+        ]]
+      }
+    });
 
     res.json({ success: true });
 
@@ -83,9 +83,13 @@ await sheets.spreadsheets.values.append({
    LOGIN → CHECK PASSWORD
 ================================ */
 app.post("/login", async (req, res) => {
-  const { email, password } = req.body;
-
   try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res.status(400).json({ error: "Email and password required" });
+    }
+
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: process.env.GOOGLE_SHEET_ID,
       range: "Sheet1!A:H",
@@ -97,14 +101,17 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ error: "User not found" });
     }
 
-    // Find user by email (column B)
-    const user = rows.find(row => row[1] === email);
+    // Remove header row
+    const users = rows.slice(1);
+
+    // Find user by email (Column B)
+    const user = users.find(row => row[1] === email);
 
     if (!user) {
       return res.status(401).json({ error: "User not found" });
     }
 
-    const hashedPassword = user[6]; // column G
+    const hashedPassword = user[6]; // Column G
 
     const isMatch = await bcrypt.compare(password, hashedPassword);
 
@@ -124,12 +131,12 @@ app.post("/login", async (req, res) => {
 
   } catch (err) {
     console.error("LOGIN ERROR:", err);
-    res.status(500).json({ error: "Server error" });
+    res.status(500).json({ error: "Login failed" });
   }
 });
 
 /* ===============================
-   START SERVER
+   START SERVER (MUST BE LAST)
 ================================ */
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
