@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterSide Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Questrial&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<header class="hero" style="background-image: url('images/hero\ \(background\).jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="fade-overlay"></div>
+    
+    <nav class="navbar">
+      <div class="logo-space">
+        <img src="images/Betterside Logo 1.png" alt="BetterSide Logo">
+      </div>
+      
+      <ul class="nav-links">
+        <li>Explore</li>
+        <li>Blog</li>
+        <li><a href="subpage/about/index.html" class="primary">About</a></li>
+        <li><a href="subpage/contact/contact.html" class="primary">Contact</a></li>
+        
+        <li class="mobile-auth-btn">
+            <button class="login-btn" onclick="window.location.href='subpage/login/index.html'" style="width: 150px; margin-bottom: 10px; border: 1px solid #ccc;">Login</button>
+        </li>
+        <li class="mobile-auth-btn">
+            <button class="signup-btn" onclick="window.location.href='subpage/sign up/index.html'" style="width: 150px;">Sign Up</button>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+          <button class="signup-btn" onclick="window.location.href='subpage/sign up/index.html'">Sign Up</button>
+          <button class="login-btn" onclick="window.location.href='subpage/login/index.html'">Login</button>
+      </div>
+
+      <div class="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
+    <div class="hero-wrapper">
+   <div class="hero-content hero-intro">
+  <h2 class="intro-line">Your Home. In <span class="accent">3D</span>.</h2>
+
+  <h1 class="intro-title">
+    <span>See Your Home</span>
+    <span>with <span class="brand">Better<span>Side</span></span></span>
+  </h1>
+
+  <p class="intro-sub">Digital-first real estate solutions for modern homes</p>
+
+  <div class="hero-actions intro-ui">
+    <button class="primary-btn" id="exploreBtn">Explore Projects</button>
+    <div class="slider-line"></div>
+  </div>
+</div>
+      <div class="hero-image tilt-card">
+  <img src="images/house (hero).png" alt="3D House">
+</div>
+
+    </div>
+</header>
+
+<div class="cm-section-container" id="cm-section">
+    <div class="cm-hero-card">
+        <div class="cm-hero-img-wrap">
+             <img src="images/cm.jpg" alt="CM Infinia" class="cm-hero-bg">
+            <div class="cm-overlay"></div>
+        </div>
+        <div class="cm-hero-text">
+            <h1>CM Infinia</h1>
+            <p class="cm-desc">Full immersive tour of CM Infinia, a premium luxury residential tower in the heart of the city</p>
+            <a href="https://www.cminfiniaimmersive.com/" class="cm-btn-primary" style="text-decoration: none;">View Full DGI Experience</a>
+        </div>
+    </div>
+
+    <div class="cm-top-row">
+        <div class="cm-placeholder"></div>
+        <div class="cm-sidebar">
+            <h3>Project Amenities</h3>
+            <div class="cm-amenities-grid">
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/ambulance--v1.png" alt="Ambulance"></div><p>Ambulance Service</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/meditation-guru.png" alt="Meditation"></div><p>Meditation room</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/video-playlist.png" alt="Theatre"></div><p>Mini Theatre</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/beach-umbrella.png" alt="Sky Lounge"></div><p>Sky Lounge</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/badminton.png" alt="Badminton"></div><p>Badminton Court</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/sauna.png" alt="Sauna"></div><p>Sauna & Spa</p></div>
+                <div class="cm-amenity-item cm-amenity-center"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/restaurant-table.png" alt="Restaurant"></div><p>Restaurant</p></div>
+            </div>
+            <div class="cm-contact-area">
+                <div class="cm-contact-card">
+                    <div class="cm-brand-info">
+                        <span class="cm-brand-name"><span class="cm-highlight"></span>BetterSide</span>
+                        <span class="cm-sub-text">(for any query)</span>
+                    </div>
+                    <button class="cm-btn-contact">Contact</button>
+                </div>
+                <button class="cm-btn-vr">Book for VR <span class="cm-vr-subtext">(for greater experience)</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cm-bottom-bar">
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/marker--v1.png" alt="Location"></div>
+            <div class="cm-info-text"><span class="cm-label">Location</span><span class="cm-value">CM Valley, Jainpuri</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/home--v1.png" alt="Home"></div>
+            <div class="cm-info-text"><span class="cm-label">Property type</span><span class="cm-value">Apartments</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-price-sym">₹</div>
+            <div class="cm-info-text"><span class="cm-label">Area</span><span class="cm-value">4600s.ft and above <span class="cm-unit"></span></span></div>
+        </div>
+        <button class="cm-info-pill cm-options-btn">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/horizontal-settings-mixer.png" alt="Options"></div>
+           <span  class="cm-value">More options</span> 
+        </button>
+        <button class="cm-download-btn"><img src="https://img.icons8.com/ios/50/long-arrow-down.png" alt="Download" style="width: 24px;"></button>
+    </div>
+</div>
+
+<div class="cm-section-container" id="mbd-section">
+    <div class="cm-hero-card">
+        <div class="cm-hero-img-wrap">
+             <img src="images/MDB_Lutyens_1766146795158.jpg" alt="MBD Lyutens" class="cm-hero-bg">
+            <div class="cm-overlay"></div>
+        </div>
+        <div class="cm-hero-text">
+            <h1>MBD Lyutens</h1>
+            <p class="cm-desc">Full immersive tour of MBD Lyutens, a premium luxury residential tower in the heart of the city</p>
+            <a href="https://www.mdbthelutyens.in/" class="cm-btn-primary" style="text-decoration: none;">View Full DGI Experience</a>
+        </div>
+    </div>
+
+    <div class="cm-top-row">
+        <div class="cm-placeholder"></div>
+        <div class="cm-sidebar">
+            <h3>Project Amenities</h3>
+            <div class="cm-amenities-grid">
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/city-hall.png" alt="Clubhouse"></div><p>Clubhouse</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/park-bench.png" alt="Park"></div><p>Green Park</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/swimming-pool.png" alt="Pool"></div><p>Infinity Pool</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/security-shield-green.png" alt="Security"></div><p>Essential Service</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/000000/ping-pong.png" alt="Rec"></div><p>Recreational</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/sauna.png" alt="Sauna"></div><p>Sauna & Spa</p></div>
+                <div class="cm-amenity-item cm-amenity-center"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/playground.png" alt="Kids"></div><p>Children Space</p></div>
+            </div>
+            <div class="cm-contact-area">
+                <div class="cm-contact-card">
+                    <div class="cm-brand-info"><span class="cm-brand-name"><span class="cm-highlight"></span>BetterSide</span><span class="cm-sub-text">(for any query)</span></div>
+                    <button class="cm-btn-contact">Contact</button>
+                </div>
+                <button class="cm-btn-vr">Book for VR <span class="cm-vr-subtext">(for greater experience)</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cm-bottom-bar">
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/marker--v1.png" alt="Location"></div>
+            <div class="cm-info-text"><span class="cm-label">Location</span><span class="cm-value">CM Valley, Jainpuri</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/home--v1.png" alt="Home"></div>
+            <div class="cm-info-text"><span class="cm-label">Property type</span><span class="cm-value">Apartments</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-price-sym">₹</div>
+            <div class="cm-info-text"><span class="cm-label">Price</span><span class="cm-value">₹ 7000 <span class="cm-unit">per sqft.</span></span></div>
+        </div>
+        <button class="cm-info-pill cm-options-btn">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/horizontal-settings-mixer.png" alt="Options"></div>
+            <span class="cm-value">More options</span>
+        </button>
+        <button class="cm-download-btn"><img src="https://img.icons8.com/ios/50/long-arrow-down.png" alt="Download" style="width: 24px;"></button>
+    </div>
+</div>
+
+<div class="cm-section-container" id="ananta-section">
+    <div class="cm-hero-card">
+        <div class="cm-hero-img-wrap">
+            <img src="images/AnantaStreet_1766146992482.jpg" alt="Ananta" class="cm-hero-bg">
+            <div class="cm-overlay"></div>
+        </div>
+        <div class="cm-hero-text">
+            <h1>Ananta Street</h1>
+            <p class="cm-desc">Full immersive tour of Ananta, a premium luxury residential tower in the heart of the city</p>
+            <a href="https://bettersideserver-cpu.github.io/AnantaStreet/" class="cm-btn-primary" style="text-decoration: none">View Full DGI Experience</a>
+        </div>
+    </div>
+
+    <div class="cm-top-row">
+        <div class="cm-placeholder"></div>
+        <div class="cm-sidebar">
+            <h3>Project Amenities</h3>
+            <div class="cm-amenities-grid">
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/ambulance--v1.png" alt="Ambulance"></div><p>Ambulance</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/meditation-guru.png" alt="Meditation"></div><p>Meditation</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/video-playlist.png" alt="Theatre"></div><p>Mini Theatre</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/beach-umbrella.png" alt="Sky Lounge"></div><p>Sky Lounge</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/badminton.png" alt="Badminton"></div><p>Badminton</p></div>
+                <div class="cm-amenity-item"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/sauna.png" alt="Sauna"></div><p>Sauna & Spa</p></div>
+                <div class="cm-amenity-item cm-amenity-center"><div class="cm-icon-box"><img src="https://img.icons8.com/ios/50/restaurant-table.png" alt="Restaurant"></div><p>Restaurant</p></div>
+            </div>
+            <div class="cm-contact-area">
+                <div class="cm-contact-card">
+                    <div class="cm-brand-info"><span class="cm-brand-name"><span class="cm-highlight"></span>BetterSide</span><span class="cm-sub-text">(for any query)</span></div>
+                    <button class="cm-btn-contact">Contact</button>
+                </div>
+                <button class="cm-btn-vr">Book for VR <span class="cm-vr-subtext">(for greater experience)</span></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="cm-bottom-bar">
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/marker--v1.png" alt="Location"></div>
+            <div class="cm-info-text"><span class="cm-label">Location</span><span class="cm-value">Ananta Valley, Jainpuri</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/home--v1.png" alt="Home"></div>
+            <div class="cm-info-text"><span class="cm-label">Property type</span><span class="cm-value">Apartments</span></div>
+        </div>
+        <div class="cm-info-pill">
+            <div class="cm-price-sym">₹</div>
+            <div class="cm-info-text"><span class="cm-label">Price</span><span class="cm-value">₹ 7000 <span class="cm-unit">per sqft.</span></span></div>
+        </div>
+        <button class="cm-info-pill cm-options-btn">
+            <div class="cm-info-icon-wrapper"><img src="https://img.icons8.com/ios/50/horizontal-settings-mixer.png" alt="Options"></div>
+            <span class="cm-value">More options</span>
+        </button>
+        <button class="cm-download-btn"><img src="https://img.icons8.com/ios/50/long-arrow-down.png" alt="Download" style="width: 24px;"></button>
+    </div>
+</div>
+
+<footer class="bs-footer">
+    <div class="bs-container">
+        <div class="bs-footer-flex-wrapper">
+            <div class="bs-top-section">
+                <span class="bs-label">Find Us</span>
+                <h2 class="bs-heading">Visit Our <br>Headquarters</h2>
+                <p class="bs-subtext">Come visit our office to discuss your real estate needs in person. We are open Mon-Sat, 9am - 6pm.</p>
+                
+                <div class="bs-contact-list">
+                    <div class="bs-contact-item">
+                        <div class="bs-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="bs-contact-info">
+                            <h4>Office Address</h4>
+                            <p class="bs-detail-label">Main Branch</p>
+                            <p class="bs-detail-value">404, Nirmal Nagar Rd, Duggri,<br>Ludhiana, Punjab 141001</p>
+                        </div>
+                    </div>
+                    <div class="bs-contact-item">
+                        <div class="bs-icon-box">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div class="bs-contact-info">
+                            <h4>Contact</h4>
+                            <p class="bs-detail-value">+91 98765 43210<br>betterside.in@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bs-map-section">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3424.678912345678!2d75.845!3d30.895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391a828f09012345%3A0xabcdef0123456789!2sNirmal%20Nagar%20Rd%2C%20Dugri%2C%20Ludhiana%2C%20Punjab%20141003!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+
+        <div class="bs-divider"></div>
+        
+        <div class="bs-bottom-section">
+            <div class="bs-col bs-brand-col">
+                <div class="bs-logo-wrapper">
+                    <img src="images/Betterside Logo 1.png" alt="BetterSide" class="bs-logo">
+                </div>
+                <p class="bs-brand-desc">Experience real estate before it's built.</p>
+                <div class="bs-social-icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="bs-col">
+                <h5>Platform</h5>
+                <ul class="bs-links">
+                   <li><a href="#" id="scrollToTop">Home</a></li>
+                    <li><a href="subpage/about/index.html">About Us</a></li>
+                    <li><a href="./subpage/Features/index.html">Features</a></li>
+                    <li><a href="./subpage/Pricing/index.html">Pricing</a></li>
+                    <li><a href="./subpage/Login/index.html">Login</a></li>
+                </ul>
+            </div>
+            <div class="bs-col">
+                <h5>Resources</h5>
+                <ul class="bs-links">
+                    <li><a href="./subpage/Sign up/index.html">For Developers</a></li>
+                    <li><a href="./subpage/Sign up/index.html">For Channel Partners</a></li>
+                    <li><a href="./subpage/Sign up/index.html">For Home Buyers</a></li>
+                    <li><a href="./subpage/Case studies/index.html">Case Studies</a></li>
+                    <li><a href="./subpage/Blog/index.html">Blog</a></li>
+                </ul>
+            </div>
+            <div class="bs-col">
+                <h5>Contact</h5>
+                <ul class="bs-links">
+                    <li><a href="mailto:hello@better-side.com">betterside.in@gmail.com</a></li>
+                    <li class="bs-copyright">© 2026 BetterSide<br>All rights reserved</li>
+                    <li><a href="#">Privacy Policy - Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<label class="theme-switch">
+      <input type="checkbox" id="theme-toggle">
+      <span class="slider round">
+          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </span>
+  </label>
+          
+<script>
+   document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. Mobile Menu Toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // 2. Custom Cursor (Desktop Only)
+    const dot = document.querySelector('.cursor-dot');
+    const ring = document.querySelector('.cursor-ring');
+
+    if (window.matchMedia("(pointer: fine)").matches && dot && ring) {
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            dot.style.left = mouseX + 'px';
+            dot.style.top  = mouseY + 'px';
+        });
+
+        function animateRing() {
+            const dx = mouseX - ringX;
+            const dy = mouseY - ringY;
+            if (Math.sqrt(dx * dx + dy * dy) > 70) {
+                ringX = mouseX;
+                ringY = mouseY;
+            } else {
+                ringX += dx * 0.18;
+                ringY += dy * 0.18;
+            }
+            ring.style.left = ringX + 'px';
+            ring.style.top  = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('a, button').forEach(el => {
+            el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+            el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+        });
+    } else {
+        if(dot) dot.style.display = 'none';
+        if(ring) ring.style.display = 'none';
+    }
+
+    // 3. Theme Toggle
+    const toggleSwitch = document.querySelector('#theme-toggle');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        if(toggleSwitch) toggleSwitch.checked = true;
+    }
+
+    if(toggleSwitch) {
+        toggleSwitch.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+
+    // 4. Navbar Scroll
+    const navbar = document.querySelector(".navbar");
+    let lastScrollY = window.scrollY;
+    let showTimeout = null;
+
+    window.addEventListener("scroll", () => {
+        const currentScroll = window.scrollY;
+        if(navbar) {
+            navbar.classList.toggle("scrolled", currentScroll > 60);
+            if (currentScroll > lastScrollY && currentScroll > 120) {
+                clearTimeout(showTimeout);
+                navbar.classList.add("nav-hide");
+            } else if (currentScroll < lastScrollY) {
+                navbar.classList.remove("nav-hide");
+            }
+        }
+        lastScrollY = currentScroll;
+    });
+
+    // 5. Smooth Scroll
+    const exploreBtn = document.getElementById('exploreBtn');
+    const cmSection = document.getElementById('cm-section');
+    const scrollToTop = document.getElementById('scrollToTop');
+
+    if (exploreBtn && cmSection) {
+        exploreBtn.addEventListener('click', () => {
+            cmSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    }
+    
+    if (scrollToTop) {
+        scrollToTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* ================================
+     HERO INTRO ANIMATION (REUSABLE)
+  ================================ */
+  const heroIntro = document.querySelector(".hero-intro");
+
+  function playHeroIntro() {
+    if (!heroIntro) return;
+
+    // Remove class to reset animation
+    heroIntro.classList.remove("animate");
+
+    // Force browser reflow to restart animation
+    void heroIntro.offsetWidth;
+
+    // Re-add class after tiny delay
+    setTimeout(() => {
+      heroIntro.classList.add("animate");
+    }, 50);
+  }
+
+  // Play once on page load
+  playHeroIntro();
+
+  /* ================================
+     RESTART ON THEME TOGGLE
+  ================================ */
+  const themeToggle = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  if (themeToggle) {
+    themeToggle.addEventListener("change", () => {
+      if (themeToggle.checked) {
+        body.classList.add("dark-mode");
+        localStorage.setItem("theme", "dark");
+      } else {
+        body.classList.remove("dark-mode");
+        localStorage.setItem("theme", "light");
+      }
+
+      // Restart hero animation on theme change
+      playHeroIntro();
+    });
+  }
+
+  // Load saved theme on refresh
+  if (localStorage.getItem("theme") === "dark") {
+    body.classList.add("dark-mode");
+    if (themeToggle) themeToggle.checked = true;
+  }
+
+});
+
+
+
+
+// ===== PERFECTLY SMOOTH FLOAT + 3D TILT (NO JERK) =====
+const tiltCard = document.querySelector(".tilt-card");
+
+if (tiltCard) {
+  const img = tiltCard.querySelector("img");
+
+  let currentTiltX = 0;
+  let currentTiltY = 0;
+  let targetTiltX = 0;
+  let targetTiltY = 0;
+
+  let floatTime = 0;
+
+  function animate() {
+    // Smoothly ease tilt (lerp)
+    currentTiltX += (targetTiltX - currentTiltX) * 0.08;
+    currentTiltY += (targetTiltY - currentTiltY) * 0.08;
+
+    // Floating motion (sin wave)
+    floatTime += 0.01;
+    const floatY = Math.sin(floatTime) * 6; // subtle float
+
+    const rotateX = currentTiltY;
+    const rotateY = currentTiltX;
+
+    img.style.transform = `
+      translateY(${floatY}px)
+      rotateX(${rotateX}deg)
+      rotateY(${rotateY}deg)
+      scale(1.02)
+    `;
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+
+  tiltCard.addEventListener("mousemove", (e) => {
+    const rect = tiltCard.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    targetTiltX = ((x - centerX) / centerX) * 3;   // left/right
+    targetTiltY = ((y - centerY) / centerY) * -3;  // up/down
+  });
+
+  tiltCard.addEventListener("mouseleave", () => {
+    // Smoothly return to center
+    targetTiltX = 0;
+    targetTiltY = 0;
+  });
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,127 @@
+/* --- Existing Core Styles --- */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+body {cursor: none; min-height: 100vh; background: #ffffff; display: flex; justify-content: center; align-items: center; }
+body::before { content: ""; position: fixed; inset: 0; background-image: linear-gradient(rgba(0, 0, 0, 0.025) 1px, transparent 7px), linear-gradient(90deg, rgba(0, 0, 0, 0.025) 1px, transparent 7px); background-size: 90px 90px; pointer-events: none; z-index: 0; }
+
+.page-wrapper { position: relative; z-index: 1; width: 100%; display: flex; justify-content: center; padding: 20px; }
+.card { background: #f2f2f2; width: 100%; max-width: 420px; border-radius: 28px; padding: 36px 28px; position: relative; }
+.logo { display: flex; justify-content: center; margin-bottom: 24px; }
+.logo img { height: 32px; width: auto; }
+h1 { text-align: center; font-size: 22px; font-weight: 600; margin-bottom: 6px; color: #111827; }
+.subtitle { text-align: center; font-size: 13px; color: #6b7280; margin-bottom: 28px; }
+
+/* --- FORM STYLES --- */
+.signup-form { display: flex; flex-direction: column; gap: 20px; }
+.input-group { display: flex; flex-direction: column; gap: 8px; }
+.input-group label { font-size: 13px; font-weight: 500; color: #374151; }
+.input-wrapper { position: relative; display: flex; align-items: center; }
+.input-icon { position: absolute; left: 14px; color: #9ca3af; font-size: 14px; pointer-events: none; }
+.input-wrapper input { width: 100%; padding: 12px 12px 12px 40px; padding-right: 40px; border-radius: 12px; border: 1px solid #e5e7eb; background: #ffffff; font-size: 14px; color: #111827; outline: none; transition: all 0.2s ease; }
+.input-wrapper input:focus { border-color: #2563eb; box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+.input-wrapper input::placeholder { color: #9ca3af; }
+.toggle-password { position: absolute; right: 14px; color: #9ca3af; cursor: pointer; font-size: 14px; transition: color 0.2s; }
+.toggle-password:hover { color: #374151; }
+.submit-btn { margin-top: 10px; width: 100%; background-color: #2563eb; color: white; border: none; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+.submit-btn:hover { background-color: #1d4ed8; transform: translateY(-1px); box-shadow: 0 6px 10px rgba(37, 99, 235, 0.25); }
+
+
+/* Dot */
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #0055ff;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100001;
+    transform: translate(-50%, -50%);
+}
+
+/* Ring */
+.cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(0, 85, 255, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+    transition: 
+        width 0.2s ease,
+        height 0.2s ease,
+        border 0.2s ease,
+        transform 0.05s linear;
+}
+
+/* Hover animation */
+.cursor-ring.cursor-hover {
+    width: 52px;
+    height: 52px;
+    border-color: #ff8a00;
+}
+/* --- BACK BUTTON (Inside Card - Top Left) --- */
+.back-btn {
+    position: absolute;
+    top: 28px;
+    left: 24px;
+    width: 34px; height: 34px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    display: flex; align-items: center; justify-content: center;
+    color: #374151; font-size: 14px; text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+.back-btn:hover { border-color: #2563eb; color: #2563eb; box-shadow: 0 6px 14px rgba(37, 99, 235, 0.15); }
+
+/* --- THEME BUTTON (Fixed - Bottom Right) --- */
+.theme-btn {
+    position: fixed; /* Fixed to viewport */
+    bottom: 30px;    /* Distance from bottom */
+    right: 30px;     /* Distance from right */
+    
+    width: 44px;     /* Round circle dimensions */
+    height: 44px;
+    border-radius: 50%;
+    
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    display: flex; align-items: center; justify-content: center;
+    color: #374151; 
+    font-size: 18px; /* Slightly larger icon */
+    text-decoration: none;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    z-index: 100;    /* Stays on top */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.theme-btn:hover {
+    border-color: #2563eb; 
+    color: #2563eb; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.15); 
+}
+
+
+/* --- DARK MODE OVERRIDES --- */
+body.dark { background: #0b0f19; }
+body.dark::before { background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 7px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 7px); }
+
+body.dark .card { background: #111827; }
+body.dark h1 { color: #f9fafb; }
+body.dark .subtitle, body.dark .section-title { color: #9ca3af; }
+
+/* Dark Mode Inputs */
+body.dark .input-group label { color: #d1d5db; }
+body.dark .input-wrapper input { background: #1f2937; border-color: #374151; color: #f9fafb; }
+body.dark .input-wrapper input:focus { border-color: #3b82f6; }
+body.dark .input-icon, body.dark .toggle-password { color: #6b7280; }
+body.dark .toggle-password:hover { color: #e5e7eb; }
+
+/* Dark Mode Buttons */
+body.dark .back-btn { background: #020617; border-color: #1f2937; color: #e5e7eb; }
+body.dark .theme-btn { background: #020617; border-color: #1f2937; color: #e5e7eb; }
+body.dark .theme-btn:hover { color: #3b82f6; border-color: #3b82f6; }

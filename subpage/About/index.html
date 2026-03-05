@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - We Are The Future</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<a href="/" class="back-arrow">
+    <i class="fa-solid fa-arrow-left"></i>
+</a>
+
+    <div class="video-container">
+        <video autoplay muted loop playsinline class="bg-video">
+            <source src="video/Luxury_Building_Animation_Ready.mp4" type="video/mp4">
+        </video>
+        <div class="video-overlay"></div>
+    </div>
+   
+    <nav class="navbar">
+  <!-- Hamburger (mobile) -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Links -->
+  <div class="nav-links" id="navLinks">
+    <a href="./../../index.html">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">Blog</a>
+    <a href="#" class="active">About</a>
+    <a href="./../../subpage/contact/contact.html">Contact</a>
+  </div>
+</nav>
+
+    <div class="main-container">
+        
+    <section class="about-header">
+    <h1 class="header-title">
+        <span class="hover-about">ABOUT</span> <br>
+        
+        <span class="underline-style hover-us">US</span>
+    </h1>
+</section>
+        <section class="future-showcase">
+            
+
+            <div class="full-width-type">
+                <h2 class="fw-line gradient-text">WE ARE</h2>
+                
+                <div class="vr-interruption">
+                    <img src="image/Untitled design (7).png" alt="VR Headset" class="floating-vr">
+                </div>
+
+                <h2 class="fw-line white-text">THE FUTURE</h2>
+            </div>
+            
+            <blockquote class="quote-box">
+                "We help premium real estate developers go beyond brochures and 3D walkthrough videos."
+            </blockquote>
+        </section>
+
+        <section class="expertise-section">
+            <div class="section-tag">What We Offer</div>
+            <h3 class="section-title">Our <span class="gradient-text-orange">Expertise</span></h3>
+            <p class="section-subtitle">A comprehensive suite of cutting-edge services designed to elevate your brand</p>
+
+            <div class="cards-grid">
+                <div class="glass-card">
+                    <div class="icon-box gradient-pink"><i class="fa-solid fa-cube"></i></div>
+                    <h4>Immersive Experiences</h4>
+                    <p>Next-gen digital experiences that captivate and engage audiences.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-blue"><i class="fa-solid fa-eye"></i></div>
+                    <h4>3D Walkthroughs</h4>
+                    <p>Experience architectural projects in stunning photo-realistic detail.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-purple"><i class="fa-solid fa-vr-cardboard"></i></div>
+                    <h4>VR Solutions</h4>
+                    <p>Virtual reality solutions that transport users to new worlds.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-cyan"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h4>Social Marketing</h4>
+                    <p>Strategic social media campaigns that amplify your brand voice.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-indigo"><i class="fa-solid fa-tag"></i></div>
+                    <h4>PR & Branding</h4>
+                    <p>Build authority and credibility through strategic public relations.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-teal"><i class="fa-solid fa-user-group"></i></div>
+                    <h4>Personal Brands</h4>
+                    <p>Thought leadership through video interviews and content.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-red"><i class="fa-solid fa-chart-line"></i></div>
+                    <h4>Performance Ads</h4>
+                    <p>Data-driven Google & Meta campaigns optimized for ROI.</p>
+                </div>
+
+                <div class="glass-card">
+                    <div class="icon-box gradient-orange"><i class="fa-solid fa-network-wired"></i></div>
+                    <h4>Partner Network</h4>
+                    <p>Connect with influencers and partners within our vast network.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="pill-tag">Available for New Projects</div>
+            
+            <h2 class="cta-title">Let's Create<br>
+                <span class="gradient-text-blue">Something</span> 
+                <span class="gradient-text-orange">Extraordinary</span>
+            </h2>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary"><i class="fa-regular fa-envelope"></i> Start a Project &rarr;</a>
+                <a href="#" class="btn-outline"><i class="fa-regular fa-calendar"></i> Schedule a Call</a>
+            </div>
+
+            <div class="footer-links">
+                <a href="#"><i class="fa-regular fa-envelope"></i> hello@company.com</a>
+                <a href="#"><i class="fa-solid fa-phone"></i> +1 (555) 123-4567</a>
+            </div>
+        </section>
+
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+
+  if (!dot || !ring) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Dot sticks exactly to mouse
+    dot.style.left = mouseX + 'px';
+    dot.style.top  = mouseY + 'px';
+  });
+
+  function animateRing() {
+    const dx = mouseX - ringX;
+    const dy = mouseY - ringY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Snap on fast movement
+    if (distance > 70) {
+      ringX = mouseX;
+      ringY = mouseY;
+    } else {
+      ringX += dx * 0.18;
+      ringY += dy * 0.18;
+    }
+
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+
+    requestAnimationFrame(animateRing);
+  }
+
+  animateRing();
+
+  /* Hover effect on clickable elements */
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+  });
+});
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+}
+</script>
+
+
+</body>
+</html>
