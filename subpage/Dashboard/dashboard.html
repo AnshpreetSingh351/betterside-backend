@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Channel Partner - All In One</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+    <aside class="sidebar">
+        <div>
+       <div class="logo" onclick="window.location.href='/'" style="cursor:pointer;">
+    <div class="logo-icon">
+        <i class="fa-solid fa-house"></i>
+    </div>
+    Channel Partner
+</div>
+            <ul class="nav-links">
+                <li><a id="nav-dashboard" class="active" onclick="showSection('dashboard')"><i class="fa-solid fa-table-columns"></i> Dashboard</a></li>
+                <li><a id="nav-leads" onclick="showSection('leads')"><i class="fa-solid fa-user-group"></i> Leads</a></li>
+                <li><a id="nav-ads" onclick="showSection('ads')"><i class="fa-solid fa-bullhorn"></i> Run Ads</a></li>
+                <li><a id="nav-marketing" onclick="showSection('marketing')"><i class="fa-solid fa-chart-line"></i> Marketing Support</a></li>
+                <li><a id="nav-profile" onclick="showSection('profile')"><i class="fa-regular fa-circle-user"></i> Profile</a></li>
+            </ul>
+        </div>
+
+        <div class="bottom-section">
+            <div class="theme-switch-container">
+                <span class="theme-label">Theme</span>
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+
+            <div class="user-profile">
+ <div class="user-info">
+    <div class="avatar" id="sidebarAvatar">
+        <img id="profileImage" src="" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+        <span id="avatarInitials">RS</span>
+    </div>
+    <input type="file" id="imageUpload" accept="image/*" hidden>
+    
+    <div class="user-details">
+        <h4 id="sidebarName">Rohit Sharma</h4>
+        <span id="sidebarRole">Registered Partner</span>
+    </div>
+</div>
+</div>
+             <a href="#" class="sign-out" id="logoutBtn">
+    <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign Out
+</a>
+            </div>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <div id="dashboard" class="content-section active-section">
+            <header>
+         <h1>Welcome back, <span id="welcomeName"></span>!</h1>
+                <p class="page-desc">Here's what's happening with your projects today.</p>
+            </header>
+
+            <section class="stats-grid">
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Today's Leads</span><span class="badge blue">+2</span></div>
+                   <div class="card-number" id="todayLeads">12</div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Total Leads</span><span class="badge orange">+15%</span></div>
+                  <div class="card-number" id="totalLeads">843</div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Active Projects</span><span class="badge green">Running</span></div>
+                    <div class="card-number" id="activeProjects">8</div>
+                </div>
+                <div class="card">
+                    <div class="card-header"><span class="card-title">Ads in Progress</span><span class="badge purple">Reviewing</span></div>
+                <div class="card-number" id="adsInProgress">3</div>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <h3>Recent Leads</h3>
+                <br>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Project</th>
+                            <th>Source</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h5>Rahul Sharma</h5></td>
+                            <td>+91 98765 43210</td>
+                            <td>Lakeside Residences</td>
+                            <td><span class="source-tag">Meta Ads</span></td>
+                            <td><select class="status-select"><option>New</option><option>Contacted</option></select></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Priya Singh</h5></td>
+                            <td>+91 98765 12345</td>
+                            <td>Skyline Heights</td>
+                            <td><span class="source-tag">Organic</span></td>
+                            <td><select class="status-select"><option>New</option><option>Contacted</option></select></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="promo-banner">
+                <div class="promo-content">
+                    <h3>Need more qualified leads?</h3>
+                    <p>Launch targeted ad campaigns with BetterSide's marketing experts.</p>
+                </div>
+                <button class="promo-btn" onclick="showSection('ads')">
+                    <i class="fa-solid fa-circle-plus"></i> Run Ads
+                </button>
+            </section>
+        </div>
+
+        <div id="leads" class="content-section">
+            <div class="top-nav-link"><a onclick="showSection('dashboard')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a></div>
+            <header>
+                <h1>My Leads</h1>
+                <p class="page-desc">Manage and track all your potential clients. (2 total)</p>
+            </header>
+
+            <div style="display:flex; gap:10px; margin-bottom: 20px;">
+                <input type="text" class="input-field" placeholder="Search by name or phone..." style="max-width: 400px;">
+                <button class="status-select" style="background:var(--card-bg);">Filter <i class="fa-solid fa-filter"></i></button>
+            </div>
+
+            <section class="table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Project</th>
+                            <th>Source</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h5>Rahul</h5></td>
+                            <td>1234567890</td>
+                            <td>Skyline Residency</td>
+                            <td><span class="source-tag">Organic</span></td>
+                            <td>24 Jan 2026</td>
+                            <td><select class="status-select"><option>New</option></select></td>
+                            <td><i class="fa-regular fa-comment"></i></td>
+                        </tr>
+                        <tr>
+                            <td><h5>Rohit Verma</h5></td>
+                            <td>9876543210</td>
+                            <td>Emerald Heights</td>
+                            <td><span class="source-tag">Meta Ads</span></td>
+                            <td>24 Jan 2026</td>
+                            <td><select class="status-select"><option>Contacted</option></select></td>
+                            <td><i class="fa-regular fa-comment"></i></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="ads" class="content-section">
+            <div class="top-nav-link"><a onclick="showSection('dashboard')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a></div>
+            <h1>Run Ads with BetterSide</h1>
+            
+            <form>
+                <div class="ad-form-grid">
+                    <select class="input-field"><option>Skyline Residency</option><option>Emerald Heights</option></select>
+                    <input type="text" class="input-field" placeholder="Target Area">
+                    <input type="text" class="input-field" placeholder="Budget">
+                    <input type="text" class="input-field" placeholder="Duration">
+                </div>
+                <button type="button" class="submit-btn">Submit Ad Request</button>
+            </form>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; max-width: 900px;">
+                <div class="card" style="border: 1px solid var(--border-color);">
+                    <h3>Skyline Residency</h3>
+                    <span style="color: var(--accent-green); font-size: 0.9rem; margin: 5px 0;">running</span>
+                    <div style="color: var(--text-white); font-size: 0.95rem;">₹50000 • 15 days</div>
+                    <div style="color: var(--text-gray); font-size: 0.95rem;">Leads: 18</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="marketing" class="content-section">
+            <div class="top-nav-link"><a onclick="showSection('dashboard')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a></div>
+            <header>
+                <h1>Marketing Support</h1>
+                <p class="page-desc">Track the marketing collateral shared with you.</p>
+            </header>
+
+            <div style="background: rgba(13,110,253,0.1); border:1px solid rgba(13,110,253,0.25); padding:20px; border-radius:10px; color:#9ec5fe; margin-bottom:30px; font-size:0.9rem;">
+                <i class="fa-solid fa-circle-info"></i> Files are shared via WhatsApp/Email. This page tracks volume.
+            </div>
+
+            <section class="stats-grid-4">
+                <div class="card"><span style="color:var(--text-gray); font-size:0.8rem; font-weight:700;">CREATIVES TODAY</span><span class="card-number">2</span></div>
+                <div class="card"><span style="color:var(--text-gray); font-size:0.8rem; font-weight:700;">TOTAL</span><span class="card-number">142</span></div>
+                <div class="card"><span style="color:var(--text-gray); font-size:0.8rem; font-weight:700;">EDMs SENT</span><span class="card-number">64</span></div>
+            </section>
+
+            <h3>Support History</h3>
+            <br>
+            <section class="table-section">
+                <table>
+                    <thead>
+                        <tr><th>Date</th><th>Type</th><th>Project</th><th>Status</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>24 Jan 2026</td><td><span class="status-pill pill-creative">Creative</span></td><td>Skyline Residency</td><td><span class="status-pill pill-completed">completed</span></td></tr>
+                        <tr><td>23 Jan 2026</td><td><span class="status-pill pill-edm">EDM</span></td><td>Emerald Heights</td><td><span class="status-pill pill-pending">pending</span></td></tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+
+        <div id="profile" class="content-section">
+            <div class="top-nav-link"><a onclick="showSection('dashboard')"><i class="fa-solid fa-arrow-left"></i> Back to Dashboard</a></div>
+            <header>
+                <h1>My Profile</h1>
+                <p class="page-desc">Manage your account details and preferences.</p>
+            </header>
+
+            <section class="profile-card">
+                <div class="card-banner"></div>
+                <div class="profile-content-container">
+                    <div class="profile-avatar-lg">RS</div>
+                    <div class="info-grid">
+                        <div>
+                            <span class="info-label">Full Name</span>
+                            <div class="info-value"><i class="fa-regular fa-user" style="color:var(--icon-blue)"></i> Rohit Sharma</div>
+                        </div>
+                        <div>
+                            <span class="info-label">Company Name</span>
+                            <div class="info-value"><i class="fa-regular fa-building" style="color:var(--icon-orange)"></i> Registered Partner</div>
+                        </div>
+                        <div>
+                            <span class="info-label">Email</span>
+                            <div class="info-value"><i class="fa-regular fa-envelope" style="color:var(--icon-blue)"></i> cp@betterside.local</div>
+                        </div>
+                        <div>
+                            <span class="info-label">Location</span>
+                            <div class="info-value"><i class="fa-solid fa-location-dot" style="color:var(--icon-orange)"></i> Mumbai</div>
+                        </div>
+                        <div>
+                            <button class="edit-btn">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+
+<script>
+// 1. SELECT ELEMENTS
+const avatar = document.getElementById("sidebarAvatar");
+const imageUpload = document.getElementById("imageUpload");
+const profileImage = document.getElementById("profileImage");
+const avatarInitials = document.getElementById("avatarInitials");
+const welcomeName = document.getElementById("welcomeName");
+const sidebarName = document.getElementById("sidebarName");
+
+const STORAGE_KEY = "userProfileImage"; // Standardized Key
+
+// 2. INITIAL LOAD (Runs on Page Refresh)
+window.addEventListener("DOMContentLoaded", () => {
+    // Load Profile Image
+    const savedPhoto = localStorage.getItem(STORAGE_KEY);
+    if (savedPhoto && profileImage) {
+        profileImage.src = savedPhoto;
+        profileImage.style.display = "block";
+        if (avatarInitials) avatarInitials.style.display = "none";
+    }
+
+    // Load Names from LocalStorage
+    const savedName = localStorage.getItem("userName");
+    if (savedName) {
+        if (welcomeName) welcomeName.textContent = savedName;
+        if (sidebarName) sidebarName.textContent = savedName;
+    }
+});
+
+// 3. TRIGGER UPLOAD
+avatar.addEventListener("click", () => imageUpload.click());
+
+// 4. PROCESS & COMPRESS IMAGE
+imageUpload.addEventListener("change", function() {
+    const file = this.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = function(e) {
+        const img = new Image();
+        img.src = e.target.result;
+
+        img.onload = function() {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+
+            // Define small size to stay under LocalStorage Quota
+            const size = 200; 
+            canvas.width = size;
+            canvas.height = size;
+
+            // Square Crop Logic
+            const minDim = Math.min(img.width, img.height);
+            const sx = (img.width - minDim) / 2;
+            const sy = (img.height - minDim) / 2;
+
+            ctx.drawImage(img, sx, sy, minDim, minDim, 0, 0, size, size);
+
+            // Compress to 70% quality JPEG
+            const compressedData = canvas.toDataURL("image/jpeg", 0.7);
+
+            try {
+                // Save and Update UI
+                localStorage.setItem(STORAGE_KEY, compressedData);
+                profileImage.src = compressedData;
+                profileImage.style.display = "block";
+                avatarInitials.style.display = "none";
+                console.log("Image saved successfully to " + window.location.origin);
+            } catch (err) {
+                alert("Storage full! Please clear your browser console with localStorage.clear()");
+            }
+        };
+    };
+    reader.readAsDataURL(file);
+});
+
+    const userName = localStorage.getItem("userName");
+    const userRole = localStorage.getItem("userRole");
+
+    if (userName) {
+        // Top welcome
+        document.getElementById("welcomeName").textContent = userName;
+
+        // Sidebar name
+        document.getElementById("sidebarName").textContent = userName;
+
+        // Avatar initials
+        const initials = userName
+            .split(" ")
+            .map(word => word[0])
+            .join("")
+            .toUpperCase();
+
+        document.getElementById("sidebarAvatar").textContent = initials;
+    }
+
+    if (userRole) {
+        document.getElementById("sidebarRole").textContent =
+            userRole.charAt(0).toUpperCase() + userRole.slice(1);
+    }
+
+
+        const API_URL = "https://script.google.com/macros/s/AKfycbw2ZwJnLGniLWe8XtEBU95wGy9hvge2_QPnLhLfVngQ858jeVIc8d98JuENyIO_FLxH6A/exec";
+
+    async function loadDashboardData() {
+        try {
+            const res = await fetch(API_URL);
+            const data = await res.json();
+
+            document.getElementById("todayLeads").textContent = data.today_leads;
+            document.getElementById("totalLeads").textContent = data.total_leads;
+            document.getElementById("activeProjects").textContent = data.active_projects;
+            document.getElementById("adsInProgress").textContent = data.ads_in_progress;
+
+        } catch (error) {
+            console.error("Error loading dashboard data:", error);
+        }
+    }
+
+    loadDashboardData();
+</script>
+
+</body>
+</html>

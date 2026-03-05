@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Real Estate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+    <a href="./../../index.html" class="back-arrow">&larr;</a>
+
+    <div class="video-background">
+        <video autoplay muted loop playsinline poster="fallback.jpg">
+            <source src="video/Cinematic_Cityscape_Background_Video.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+ <nav class="navbar">
+  <!-- Hamburger FIRST -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <div class="nav-links" id="navLinks">
+    <a href="./../../index.html">Home</a>
+    <a href="#">Explore</a>
+    <a href="#">Blog</a>
+    <a href="./../../subpage/about/index.html">About</a>
+    <a href="./../contact/contact.html">Contact</a>
+  </div>
+</nav>
+
+
+
+    <div class="full-screen-container">
+        <div class="content-wrapper">
+            
+            <div class="left-section">
+                <div class="hero-text">
+                    <h1>
+                        <span class="blue-text">CONTACT</span><br>
+                        <span class="orange-text">US</span>
+                        <span class="black-line"></span>
+                    </h1>
+                    <p>
+                        We're here to guide you every step of the way. Whether you have a question, need more details, or are ready to take the next step, our team is just a message away. Let's help you discover the better side of living.
+                    </p>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2>Let's Stay in Touch</h2>
+                <p class="sub-text">Let's connect and take the first step toward a better side of living.</p>
+                
+                <form action="#">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <input type="text" id="message" name="message" required>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+
+  if (!dot || !ring) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Dot sticks exactly to mouse
+    dot.style.left = mouseX + 'px';
+    dot.style.top  = mouseY + 'px';
+  });
+
+  function animateRing() {
+    const dx = mouseX - ringX;
+    const dy = mouseY - ringY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Snap on fast movement
+    if (distance > 70) {
+      ringX = mouseX;
+      ringY = mouseY;
+    } else {
+      ringX += dx * 0.18;
+      ringY += dy * 0.18;
+    }
+
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+
+    requestAnimationFrame(animateRing);
+  }
+
+  animateRing();
+
+  /* Hover effect on clickable elements */
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+  });
+});
+
+
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  navLinks.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+}
+
+</script>
+
+</body>
+</html>

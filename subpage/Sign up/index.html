@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BetterSide | Portal Access</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+    <a href="javascript:void(0)" class="theme-toggle" id="themeToggle">
+        <i class="fa-solid fa-moon"></i>
+    </a>
+
+    <div id="view-welcome" class="page-wrapper fade-in">
+        <div class="card">
+            <div class="logo">
+                <img src="image/Betterside_Logo_1_1-removebg-preview.png" alt="BetterSide Logo">
+            </div>
+            
+            <a href="./../../index.html" class="back-btn-small">
+                <i class="fa-solid fa-arrow-left"></i>
+            </a>
+
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Sign in to continue to BetterSide</p>
+
+            <p class="section-title">Who are you?</p>
+
+            <div class="options">
+                <a href="javascript:void(0)" onclick="switchView('view-buyer')" class="option-card">
+                    <div class="icon"><i class="fa-solid fa-house"></i></div>
+                    <div class="text">
+                        <h3>Home Buyer / Investor</h3>
+                        <p>Explore marketplace projects</p>
+                    </div>
+                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+
+                <a href="javascript:void(0)" onclick="switchView('view-partner')" class="option-card">
+                    <div class="icon"><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="text">
+                        <h3>Channel Partner</h3>
+                        <p>Manage leads & lots</p>
+                    </div>
+                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+
+                <a href="javascript:void(0)" onclick="switchView('view-developer')" class="option-card">
+                    <div class="icon"><i class="fa-solid fa-building"></i></div>
+                    <div class="text">
+                        <h3>Developer</h3>
+                        <p>List & manage projects</p>
+                    </div>
+                    <div class="arrow"><i class="fa-solid fa-chevron-right"></i></div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-buyer" class="main-container hidden fade-in">
+        <div class="left-panel">
+            <video autoplay muted loop class="bg-video">
+                <source src="video/Minimal_Real_Estate_SaaS_Login_Animation.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="content-wrapper">
+                <div class="vertical-line"></div>
+                <div class="text-content">
+                    <h1>Join as Home Buyer/<br>Investor</h1>
+                    <p>Browse verified projects, experience immersive walkthroughs, and make confident buying or investment decisions.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <a href="javascript:void(0)" onclick="switchView('view-welcome')" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+         <form id="buyerForm">
+    <div class="input-group full-width">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required>
+    </div>
+
+    <div class="row">
+        <div class="input-group half-width">
+            <label>Phone</label>
+            <input type="tel" name="phone" required>
+        </div>
+
+        <div class="input-group half-width">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+    </div>
+
+    <div class="input-group full-width">
+        <label>City</label>
+        <input type="text" name="city" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Budget (Optional)</label>
+        <input type="text" name="budget">
+    </div>
+
+               <button type="submit" class="submit-btn">
+    Complete Registration
+</button>
+          
+</form>
+
+        </div>
+    </div>
+
+    <div id="view-partner" class="main-container hidden fade-in">
+        <div class="left-panel">
+            <video autoplay muted loop class="bg-video">
+                <source src="video/Minimal_SaaS_Login_Video_Generation_v01.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="noise-overlay"></div>
+            
+            <div class="content-wrapper">
+                <div class="vertical-line"></div>
+                <div class="text-content">
+                    <h1>Join as <br>Channel Partner</h1>
+                    <p>Partner with top-tier developers, access exclusive inventory, and grow your real estate network.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <a href="javascript:void(0)" onclick="switchView('view-welcome')" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+        <form id="partnerForm">
+
+    <div class="input-group full-width">
+        <label>Full Name</label>
+        <input type="text" name="fullName" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Company / Firm Name</label>
+        <input type="text" name="companyName" required>
+    </div>
+
+    <div class="row">
+        <div class="input-group half-width">
+            <label>Phone</label>
+            <input type="tel" name="phone" required>
+        </div>
+
+        <div class="input-group half-width">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+    </div>
+
+    <div class="input-group full-width">
+        <label>City</label>
+        <input type="text" name="city" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <button type="submit" class="submit-btn">
+        Complete Registration
+    </button>
+
+</form>
+        </div>
+    </div>
+
+    <div id="view-developer" class="main-container hidden fade-in">
+        <div class="left-panel">
+            <video autoplay muted loop class="bg-video">
+                <source src="video/Minimal_SaaS_Login_Animation_Creation.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay"></div>
+            <div class="noise-overlay"></div>
+            
+            <div class="content-wrapper">
+                <div class="vertical-line"></div>
+                <div class="text-content">
+                    <h1>Join as <br>Developer</h1>
+                    <p>List your projects, manage inventory, and reach a global network of investors and buyers.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-panel">
+            <a href="javascript:void(0)" onclick="switchView('view-welcome')" class="back-link"><i class="fas fa-arrow-left"></i> Back</a>
+            
+   <form id="developerForm">
+
+    <div class="input-group full-width">
+        <label>Developer / Group Name</label>
+        <input type="text" name="developerName" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Contact Person Name</label>
+        <input type="text" name="contactName" required>
+    </div>
+
+    <div class="row">
+        <div class="input-group half-width">
+            <label>Phone</label>
+            <input type="tel" name="phone" required>
+        </div>
+
+        <div class="input-group half-width">
+            <label>Email</label>
+            <input type="email" name="email" required>
+        </div>
+    </div>
+
+    <div class="input-group full-width">
+        <label>City</label>
+        <input type="text" name="city" required>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Password</label>
+        <input type="password" name="password" required>
+    </div>
+
+    <div class="row">
+        <div class="input-group half-width">
+            <label>GST Number</label>
+            <input type="text" name="gstNumber" required>
+        </div>
+
+        <div class="input-group half-width">
+            <label>RERA No.</label>
+            <input type="text" name="reraNumber" required>
+        </div>
+    </div>
+
+    <div class="checkbox-group">
+        <input type="checkbox" id="rera-confirm" required>
+        <label for="rera-confirm">I confirm that I am RERA Registered</label>
+    </div>
+
+    <div class="input-group full-width">
+        <label>Document Link (Optional)</label>
+        <input type="url" name="documentLink">
+    </div>
+
+    <button type="submit" class="submit-btn">
+        Complete Registration
+    </button>
+
+</form>
+        </div>
+    </div>
+
+    <script>
+        // DEVELOPER SIGNUP
+document.getElementById("developerForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const name = formData.get("contactName"); // using contact person
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+        const res = await fetch("http://localhost:5000/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                email,
+                password,
+                role: "developer"
+            })
+        });
+
+const data = await res.json();
+
+if (res.ok) {
+
+    console.log("Backend response:", data);
+
+    // If backend returns user directly
+    const userName = data.user ? data.user.name : data.name;
+    const userRole = data.user ? data.user.role : data.role;
+
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userRole", userRole);
+
+    window.location.href = "../Dashboard/dashboard.html";
+
+
+} else {
+    alert(data.message);
+}
+
+    } catch (err) {
+        alert("Server error");
+    }
+});
+        // BUYER SIGNUP
+document.getElementById("buyerForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const name = formData.get("fullName");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+        const res = await fetch("http://localhost:5000/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                email,
+                password,
+                role: "buyer"
+            })
+        });
+
+      const data = await res.json();
+
+if (res.ok) {
+
+    console.log("Backend response:", data);
+
+    // If backend returns user directly
+    const userName = data.user ? data.user.name : data.name;
+    const userRole = data.user ? data.user.role : data.role;
+
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userRole", userRole);
+
+    window.location.href = "../Dashboard/dashboard.html";
+
+} else {
+    alert(data.message);
+}
+
+    } catch (err) {
+        alert("Server error");
+    }
+});
+
+    document.getElementById("partnerForm").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(this);
+
+    const name = formData.get("fullName");
+    const email = formData.get("email");
+    const password = formData.get("password");
+
+    try {
+        const res = await fetch("http://localhost:5000/api/auth/signup", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                name,
+                email,
+                password,
+                role: "partner"
+            })
+        });
+const data = await res.json();
+
+if (res.ok) {
+
+    console.log("Backend response:", data);
+
+    // If backend returns user directly
+    const userName = data.user ? data.user.name : data.name;
+    const userRole = data.user ? data.user.role : data.role;
+
+    localStorage.setItem("userName", userName);
+    localStorage.setItem("userRole", userRole);
+
+    window.location.href = "../Dashboard/dashboard.html";
+
+} else {
+    alert(data.message);
+}
+
+    } catch (err) {
+        alert("Server error");
+    }
+});
+        // 1. Theme Toggle Logic
+        const toggle = document.getElementById("themeToggle");
+        const icon = toggle.querySelector("i");
+        const body = document.body;
+
+        // Check for saved theme preference
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark');
+            icon.classList.replace("fa-moon", "fa-sun");
+        }
+
+        toggle.addEventListener("click", () => {
+            body.classList.toggle("dark");
+            
+            if (body.classList.contains("dark")) {
+                icon.classList.replace("fa-moon", "fa-sun");
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.replace("fa-sun", "fa-moon");
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // 2. View Navigation Logic (Switching between Cards)
+        function switchView(viewId) {
+            // Hide all views
+            const views = document.querySelectorAll('.main-container, .page-wrapper');
+            views.forEach(view => {
+                view.classList.add('hidden');
+                // Stop videos in hidden views to save resources
+                const video = view.querySelector('video');
+                if(video) video.pause();
+            });
+
+            // Show target view
+            const target = document.getElementById(viewId);
+            if (target) {
+                target.classList.remove('hidden');
+                // Play video if the view has one
+                const video = target.querySelector('video');
+                if(video) video.play();
+            }
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+
+  if (!dot || !ring) return;
+
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', e => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Dot sticks exactly to mouse
+    dot.style.left = mouseX + 'px';
+    dot.style.top  = mouseY + 'px';
+  });
+
+  function animateRing() {
+    const dx = mouseX - ringX;
+    const dy = mouseY - ringY;
+    const distance = Math.sqrt(dx * dx + dy * dy);
+
+    // Snap on fast movement
+    if (distance > 70) {
+      ringX = mouseX;
+      ringY = mouseY;
+    } else {
+      ringX += dx * 0.18;
+      ringY += dy * 0.18;
+    }
+
+    ring.style.left = ringX + 'px';
+    ring.style.top  = ringY + 'px';
+
+    requestAnimationFrame(animateRing);
+  }
+
+  animateRing();
+
+  /* Hover effect on clickable elements */
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('cursor-hover'));
+  });
+});
+    </script>
+    
+
+</body>
+</html>

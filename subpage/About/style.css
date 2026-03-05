@@ -1,0 +1,661 @@
+/* --- Global Reset & Fonts --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {cursor: none;
+    font-family: 'Roboto Flex', sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+.cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #000000;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100001;
+    transform: translate(-50%, -50%);
+}
+
+.cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 2px solid rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s ease, height 0.2s ease, border 0.2s ease;
+}
+.custom-cursor {
+    transition: transform 0.1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Hover effect */
+.cursor-hover {
+    width: 50px !important;
+    height: 50px !important;
+    border-color: #ff8a00 !important;
+}
+/* --- Background Video --- */
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(15px);
+    opacity: 0.5;
+    transform: scale(1.1);
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(111, 111, 111, 0.4); 
+    z-index: 1;
+}
+
+/* --- Layout --- */
+.main-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;   /* ← key fix */
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links a {
+  margin: 0 18px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar a.active, .navbar a:hover {
+    color: #fff;
+}
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 30px 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: #ccc; /* Default gray color */
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* HOVER STATE: Turns Blue (#0050C7) */
+.navbar a:hover {
+    color: #0050C7; 
+}
+
+/* ACTIVE STATE: Turns Orange (#F56B01) */
+.navbar a.active {
+    color: #F56B01;
+    font-weight: 700; /* Make active link slightly bolder */
+}
+
+/* --- SECTION 1: MASSIVE About Header (Fixed) --- */
+.about-header {
+    padding: 40px 0 100px 0;
+    margin-bottom: 140px;
+    width: 100%;
+}
+
+.header-title {
+    margin-top: 50px;
+    /* CHANGED: Using VW instead of REM for massive scaling */
+    font-size: 12vw; 
+    font-weight: 400; /* Thin font */
+    line-height: 0.85; /* Tighter line height */
+    letter-spacing: -0.04em;
+    color: rgba(255, 255, 255, 0.95);
+    text-transform: uppercase;
+}
+
+.underline-style {
+    font-weight: 600; /* Bolder for 'US' */
+    display: inline-block;
+    position: relative;
+}
+
+/* The black line under US */
+.underline-style::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 8px; /* Thicker line */
+    background: #000;
+    margin-top: 10px;
+    border-radius: 4px;
+}
+
+/* --- Hover Effects for Title --- */
+
+/* Base transition for smooth color change */
+.hover-about, .hover-us {
+    transition: color 0.3s ease;
+    cursor: default; /* Indicates interactive element */
+}
+
+/* Hover: ABOUT turns Blue (#0050C7) */
+.hover-about:hover {
+    color: #0050C7;
+}
+
+/* Hover: US turns Orange (#F56B01) */
+.hover-us:hover {
+    color: #F56B01;
+}
+
+/* Optional: If you want the underline to change color when hovering US too */
+.hover-us:hover::after {
+    background-color: #F56B01;
+    transition: background-color 0.3s ease;
+}
+
+
+
+/* --- SECTION 2: We Are The Future (Big Size) --- */
+.future-showcase {
+    position: relative;
+    padding: 30px 0 80px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Floating Pill */
+
+
+.full-width-type {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.fw-line {
+    /* CHANGED: Increased to 7.5rem for a "Big" impactful look */
+    font-size: 7.5rem; 
+    line-height: 1.1;
+    font-weight: 800;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: -2px;
+    margin: 0;
+}
+
+.gradient-text {
+    background: linear-gradient(90deg, #a855f7, #3b82f6, #06b6d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.white-text {
+    color: #fff;
+}
+
+/* VR Image - Scaled up to match text */
+.vr-interruption {
+    height: 180px; 
+    margin-top: -45px;
+    margin-bottom: -45px; 
+    position: relative;
+    z-index: 10;
+}
+
+.floating-vr {
+    width: 660px; /* Bigger image */
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Quote Style - Big Width & Font */
+.quote-box {
+    margin: 50px auto 10px auto;
+    max-width: 750px; /* Wider container */
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid #3b82f6; 
+    padding: 35px 50px;
+    font-size: 1.35rem; /* Larger, more readable font */
+    font-weight: 400;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 20px 20px 0;
+    line-height: 1.6;
+    backdrop-filter: blur(10px);
+    text-align: center; 
+}
+
+/* Responsive adjustment for Mobile */
+@media (max-width: 768px) {
+    .fw-line { font-size: 3.5rem; }
+    .vr-interruption { height: 120px; margin-top: -30px; margin-bottom: -30px; }
+    .floating-vr { width: 240px; }
+    .floating-pill { display: none; }
+    .quote-box { width: 90%; font-size: 1.1rem; padding: 25px; }
+}
+/* Quote Style */
+.quote-box {
+    margin: 100px auto 40px auto;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.05);
+    border-left: 5px solid #3b82f6; 
+    padding: 40px;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 0 20px 20px 0;
+    line-height: 1.6;
+    backdrop-filter: blur(10px);
+    text-align: left;
+}
+
+/* --- SECTION 3: Expertise Section --- */
+.expertise-section {
+    padding-top: 50px;
+}
+
+.section-tag {
+    color: #06b6d4;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.section-title {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+}
+
+.gradient-text-orange {
+    background: linear-gradient(90deg, #f97316, #ec4899);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.section-subtitle {
+    margin-bottom: 60px;
+    color: rgba(255,255,255,0.6);
+    font-size: 1.1rem;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+    text-align: left;
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.glass-card:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.glass-card h4 {
+    margin: 20px 0 10px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.glass-card p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.5;
+}
+
+.icon-box {
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+/* Gradients */
+.gradient-pink { background: linear-gradient(135deg, #ec4899, #db2777); }
+.gradient-blue { background: linear-gradient(135deg, #3b82f6, #2563eb); }
+.gradient-purple { background: linear-gradient(135deg, #a855f7, #9333ea); }
+.gradient-cyan { background: linear-gradient(135deg, #06b6d4, #0891b2); }
+.gradient-indigo { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+.gradient-teal { background: linear-gradient(135deg, #14b8a6, #0d9488); }
+.gradient-red { background: linear-gradient(135deg, #ef4444, #dc2626); }
+.gradient-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+
+/* --- SECTION 4: CTA --- */
+.cta-section {
+    padding: 120px 0 60px;
+}
+
+.pill-tag {
+    display: inline-block;
+    padding: 10px 24px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-bottom: 30px;
+    background: rgba(255,255,255,0.05);
+}
+
+.cta-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 50px;
+}
+
+.gradient-text-blue {
+    background: linear-gradient(90deg, #3b82f6, #2563eb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 80px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    padding: 16px 40px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover, .btn-outline:hover {
+    transform: translateY(-3px);
+}
+
+.btn-outline:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 0.9rem;
+    color: #888;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 40px;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+    .header-title { font-size: 18vw; } /* Even bigger on mobile */
+    .fw-line { font-size: 15vw; }
+    .cta-title { font-size: 2.5rem; }
+    .floating-pill { display: none; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .quote-box { margin: 60px 0; padding: 25px; }
+}
+
+/* --- Back Button --- */
+.back-btn {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000; /* Ensures it sits above video and overlays */
+    
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    padding: 12px 24px;
+    border-radius: 30px;
+    
+    /* Glassmorphism Style to match your theme */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    transition: all 0.3s ease;
+}
+
+/* Hover Effect */
+.back-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px); /* Subtle slide left */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .back-btn {
+        top: 20px;
+        left: 20px;
+        padding: 10px 18px;
+        font-size: 0.8rem;
+    }
+    
+    /* Optional: Hide text on very small screens, keep icon */
+    .back-btn span {
+        display: inline-block;
+    }
+}
+
+/* --- Fixed Back Arrow Button --- */
+.back-arrow {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 10002; /* Ensures it sits on top of video/overlay */
+    
+    width: 50px;
+    height: 50px;
+    
+    /* Flexbox to center the icon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    border-radius: 50%; /* Makes it a perfect circle */
+    
+    /* Glass Effect */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+/* Hover Animation */
+.back-arrow:hover {
+    background: rgba(255, 255, 255, 0.2); /* Brighter on hover */
+    color: #fff;
+    transform: scale(1.1); /* Slightly grows */
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+    .back-arrow {
+        top: 20px;
+        left: 20px;
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}/* ---------------- MOBILE NAVBAR ---------------- */
+@media (max-width: 900px) {
+
+  /* Disable custom cursor on mobile */
+ 
+
+  .navbar {
+    position: fixed;
+    top: 0px;
+    left: 20px;
+    right: 20px;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Hamburger */
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    margin-left: auto;
+    z-index: 10001;
+  }
+
+  .hamburger span {
+    width: 24px;
+    height: 2px;
+    background: #ffffff;
+    border-radius: 2px;
+  }
+
+  /* Mobile Menu */
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 20px 26px;
+    border-radius: 16px;
+
+    opacity: 0;
+    transform: translateY(-10px);
+    visibility: hidden;
+
+    transition: all 0.35s ease;
+  }
+
+  .nav-links a {
+    color: #ffffff;
+    font-size: 14px;
+    text-align: right;
+  }
+
+  .nav-links.active {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+  }
+}
